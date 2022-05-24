@@ -2,7 +2,11 @@ require("dotenv").config()
 const express = require("express")
 const app = express()
 const db = require("./db/conn")
+const cors = require("cors")
 
+app.use(cors({
+    origin: "http://10.174.102.220:5500"
+}))
 
 app.use(express.json())
 app.use(express.static("public"));
