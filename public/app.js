@@ -68,14 +68,15 @@ function createTask(e) {
 	e.preventDefault()
 	const task = input.value;
 	const jsonDate = (new Date()).toJSON()
+	
 	taskData = {
 		task_content: task,
 		due_date: jsonDate,
 		completed: "false"
 	};
-	// console.log(JSON.stringify(taskData))
+	const string = JSON.stringify(taskData)
 	
-	$.post( "https://jjmac7777-mvp1.herokuapp.com/api/create", taskData, function( data, status ) {
+	$.post( "https://jjmac7777-mvp1.herokuapp.com/api/create", string, function( data, status ) {
 		console.log(`${data} and status is ${status}`,taskData);
 	  });
 }
