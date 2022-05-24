@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS todo_db;
+-- DROP DATABASE IF EXISTS todo_db;
 
-CREATE DATABASE todo_db;
-\l
-\c todo_db
+-- CREATE DATABASE todo_db;
+-- \l
+-- \c todo_db
 
 DROP TABLE IF EXISTS tasks;
 
