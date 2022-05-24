@@ -64,7 +64,7 @@ window.addEventListener('load', getAllTasks)
 	});
 
 
-function createTask(e) {
+async function createTask(e) {
 	e.preventDefault()
 	const task = input.value;
 	const jsonDate = new Date()
@@ -82,12 +82,15 @@ console.log({taskData})
 	// 	console.log(`${data} and status is ${status}`,taskData);
 	//   });
 
-	$.ajax({
-		type: "POST",
-		url: "https://jjmac7777-mvp1.herokuapp.com/api/create",
-		data: string,
-		success: console.log("success")
-	});
+	const response = await fetch("https://jjmac7777-mvp1.herokuapp.com/api/create", {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: string
+	})
+	const data = await response.json()
+	console.log(data)
 }
 
 
