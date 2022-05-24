@@ -60,16 +60,12 @@ window.addEventListener('load', () => {
 		});
 	});
 
-	// create Container
-const currentInfo = document.getElementById("current-info");
-currentInfo.classList.add("current-info");
-container.appendChild(currentInfo);
-
-const currentContainer = document.getElementById("current-container");
-currentContainer.classList.add("current-container");
-currentInfo.appendChild(currentContainer);
-
-
-
-
 });
+
+function getTasks() {
+  
+	$.get("" , (data) => {
+		
+		console.log(data))
+		
+  }

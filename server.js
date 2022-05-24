@@ -1,15 +1,21 @@
+require("dotenv").config()
 const express = require("express")
 const app = express()
 const db = require("./db/conn")
-require("dotenv").config()
+
 
 app.use(express.json())
 app.use(express.static("public"));
 
-app.get("/api/tasks", (_, res) => {
-    db.query("SELECT * FROM tasks").then((data) => {
-      res.json(data.rows);
-    });
+app.get("/api/tasks", async (_, res) => {
+    try {
+        await db.query('SELECT * FROM tasks', (error, results) => {
+            console.log(results)
+            res.status(200).json(results.rows)
+        })
+    } catch (error) {
+        console.error(error.message)
+    }
   });
 
 app.listen(process.env.PORT, () => {
