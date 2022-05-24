@@ -20,7 +20,7 @@ app.get("/api/tasks", async (_, res) => {
 app.post("/api/create", async (req, res) => {
    try {
     const {task_content, due_date, completed} = req.body
-    console.log(req.body)
+    console.log(req)
     await db.query('INSERT INTO tasks (task_content, due_date, completed) VALUES ($1, $2, $3)', [task_content, due_date, completed], (error, results) => {
         console.log(req.body)
         res.status(200).send(`${req.body} task was added`)

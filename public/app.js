@@ -78,9 +78,16 @@ console.log({taskData})
 
 	const string = JSON.stringify(taskData)
 	console.log({string})
-	$.post( "https://jjmac7777-mvp1.herokuapp.com/api/create", string, function( data, status ) {
-		console.log(`${data} and status is ${status}`,taskData);
-	  });
+	// $.post( "https://jjmac7777-mvp1.herokuapp.com/api/create", string, function( data, status ) {
+	// 	console.log(`${data} and status is ${status}`,taskData);
+	//   });
+
+	$.ajax({
+		type: "POST",
+		url: "https://jjmac7777-mvp1.herokuapp.com/api/create",
+		data: string,
+		success: console.log("success")
+	});
 }
 
 
