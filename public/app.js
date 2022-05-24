@@ -67,17 +67,16 @@ window.addEventListener('load', getAllTasks)
 function createTask(e) {
 	e.preventDefault()
 	const task = input.value;
-	const date = Date();
 	const jsonDate = (new Date()).toJSON()
 	taskData = {
-		task_content: `${task}`,
+		task_content: task,
 		due_date: jsonDate,
-		completed: "FALSE"
+		completed: "false"
 	};
-	console.log(taskData)
+	// console.log(JSON.stringify(taskData))
 	
-	$.post( "https://jjmac7777-mvp1.herokuapp.com/api/create", taskData, function( data ) {
-		$( ".result" ).html( data );
+	$.post( "http://127.0.0.1:8001/api/create", taskData, function( data, status ) {
+		console.log(`${data} and status is ${status}`,taskData);
 	  });
 }
 
