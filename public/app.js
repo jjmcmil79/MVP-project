@@ -95,7 +95,8 @@ console.log({taskData})
 	console.log(data)
 }
 
-async function updateTasks(e) {
+async function updateTasks() {
+	task_edit_el.addEventListener('click', (e) => {
 	console.log(e)
 	const updatedTask = input.value;
 	const jsonDate = new Date()
@@ -108,7 +109,7 @@ async function updateTasks(e) {
 
 	const string = JSON.stringify(updatedData)
 	
-	const response = await fetch("https://jjmac7777-mvp1.herokuapp.com/api/update", {
+	const response = await fetch(`https://jjmac7777-mvp1.herokuapp.com/api/update`, {
 		method: 'PUT',
 		headers: {
 			'Content-Type': 'application/json'
@@ -117,7 +118,7 @@ async function updateTasks(e) {
 	})
 	const data = await response.json()
 	console.log(data)
-
+	})
 }
 function getAllTasks() {
   
@@ -151,12 +152,22 @@ function getAllTasks() {
 		task_edit_el.classList.add('edit');
 		task_edit_el.innerText = 'Edit';
 
+		const task_save_el = document.createElement('button');
+		task_edit_el.classList.add('save');
+		task_edit_el.innerText = 'Save';
+
 		const task_delete_el = document.createElement('button');
 		task_delete_el.classList.add('delete');
 		task_delete_el.innerText = 'Delete';
 
+		const task_complete_el = document.createElement('button');
+		task_delete_el.classList.add('complete');
+		task_delete_el.innerText = 'Completed';
+
 		task_actions_el.appendChild(task_edit_el);
+		task_actions_el.appendChild(task_save_el);
 		task_actions_el.appendChild(task_delete_el);
+		task_actions_el.appendChild(task_complete_el);
 
 		task_el.appendChild(task_actions_el);
 
@@ -167,7 +178,7 @@ function getAllTasks() {
 				task_edit_el.innerText = "Save";
 				task_input_el.removeAttribute("readonly");
 				task_input_el.focus();
-				task_edit_el.addEventListener('click', updateTasks)
+				
 			} else {
 				task_edit_el.innerText = "Edit";
 				task_input_el.setAttribute("readonly", "readonly");

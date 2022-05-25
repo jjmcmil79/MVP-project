@@ -163,6 +163,16 @@ main {
 	-webkit-text-fill-color: transparent;
 }
 
+.task .actions .save {
+	background-image: linear-gradient(to right, var(--pink), var(--aero), var(--purple));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.task .actions .complete {
+	color: var(--light);
+}
+
 .task .actions .delete {
 	color: crimson;
 }

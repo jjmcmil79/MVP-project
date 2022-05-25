@@ -30,7 +30,7 @@ app.post("/api/create", async (req, res) => {
     }
 });
 
-app.put("/api/update", async (req, res) => {
+app.put("/api/update/:id", async (req, res) => {
     try {
         const id = req.params.id
         const {task_content, due_date, completed} = req.body
