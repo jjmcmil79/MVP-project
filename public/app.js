@@ -109,7 +109,7 @@ async function updateTasks(conID, id) {
 		completed: "false"
 	};
 
-	const string = updatedData
+	const string = JSON.stringify(updatedData)
 	
 	const response = await fetch(`https://jjmac7777-mvp1.herokuapp.com/api/update/${id}`, {
 		method: 'PUT',
