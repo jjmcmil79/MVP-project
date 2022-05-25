@@ -187,7 +187,7 @@ function ticker() {
   moveDiv.classList.add("hmove");
   ticker_el.appendChild(moveDiv);
   $.get(
-    "http://newsapi.org/v2/top-headlines?country=us&apiKey=848bbfd0fb364a2ca2fce9396844c90a",
+    "https://newsapi.org/v2/top-headlines?country=us&apiKey=848bbfd0fb364a2ca2fce9396844c90a",
     (data) => {
       console.log(data);
       for (let i = 0; i < 10; i++) {
