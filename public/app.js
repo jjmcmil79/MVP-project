@@ -65,7 +65,7 @@ window.addEventListener('load', getAllTasks)
 
 
 async function createTask(e) {
-	e.preventDefault()
+	// e.preventDefault()
 	const task = input.value;
 	const jsonDate = new Date()
 	
