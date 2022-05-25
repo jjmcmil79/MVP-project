@@ -105,7 +105,7 @@ async function updateTasks(e) {
 
 	const string = JSON.stringify(updatedData)
 	
-	const response = await fetch("https://jjmac7777-mvp1.herokuapp.com/api/create", {
+	const response = await fetch("https://jjmac7777-mvp1.herokuapp.com/api/update", {
 		method: 'PUT',
 		headers: {
 			'Content-Type': 'application/json'
