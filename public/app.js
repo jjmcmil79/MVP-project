@@ -96,9 +96,6 @@ console.log({taskData})
 }
 
 async function updateTasks(inputID, id) {
-	// task_edit_el.addEventListener('click', (e) => {
-	// console.log(e)
-	// })
 	console.log(inputID, id)
 	const input = document.getElementById(`${inputID}`)
 	const updatedTask = input.value;
@@ -123,6 +120,20 @@ async function updateTasks(inputID, id) {
 	console.log(data)
 	
 }
+
+
+async function deleteTask(inputID, id) {
+	console.log(inputID, id)
+	const input = document.getElementById(`${inputID}`)
+	const task = input.value;
+	const response = await fetch(`https://jjmac7777-mvp1.herokuapp.com/api/delete/${id}`, {
+		method: 'DELETE',
+		})
+	const data = await response.json()
+	console.log(data)
+	
+}
+
 function getAllTasks() {
   
 	$.get("https://jjmac7777-mvp1.herokuapp.com/api/tasks" , (data) => {
@@ -181,12 +192,11 @@ function getAllTasks() {
 			
 				task_input_el.removeAttribute("readonly");
 				task_input_el.focus();
-				// updateTasks(contentID)
-			
+						
 		});
 
 		task_delete_el.addEventListener('click', (e) => {
-			
+			deleteTask(inputID, id)
 			list_el.removeChild(task_el);
 		});
 		task_save_el.addEventListener('click', (e) => {

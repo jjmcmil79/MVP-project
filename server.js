@@ -45,6 +45,18 @@ app.put("/api/update/:id", async (req, res) => {
      }
  });
 
+ app.delete("/api/delete/:id", async (req, res) => {
+    try {
+        const id = req.params.id
+        await db.query(
+            'DELETE FROM tasks WHERE id = $1', [id], (err, results) => {
+             res.status(200).send(`task was deleted`)
+     })
+     } catch (error) {
+        console.error(error.message)
+     }
+ });
+
 app.listen(process.env.PORT, () => {
     console.log(`Server is listening on port: ${process.env.PORT}`)
 })
