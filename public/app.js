@@ -163,7 +163,7 @@ function getAllTasks() {
 				task_input_el.focus();
 				task_edit_el.addEventListener('click', (e) => {
 					updateTasks(e)
-				}
+				})
 			} else {
 				task_edit_el.innerText = "Edit";
 				task_input_el.setAttribute("readonly", "readonly");
