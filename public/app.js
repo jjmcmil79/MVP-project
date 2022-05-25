@@ -1,6 +1,7 @@
 const form = document.querySelector("#new-task-form");
 const input = document.querySelector("#new-task-input");
 const list_el = document.querySelector("#tasks");
+const completed_list_el = document.querySelector("#completed_tasks");
 
 
 window.addEventListener('load', getAllTasks)
@@ -95,8 +96,8 @@ console.log({taskData})
 	console.log(data)
 }
 
-async function updateTasks(inputID, id) {
-	console.log(inputID, id)
+async function updateTasks(inputID, id, currStat) {
+	console.log(inputID, id, currStat)
 	const input = document.getElementById(`${inputID}`)
 	const updatedTask = input.value;
 	const jsonDate = new Date()
@@ -104,10 +105,11 @@ async function updateTasks(inputID, id) {
 	let updatedData = {
 		task_content: updatedTask,
 		due_date: jsonDate,
-		completed: "false"
+		completed: `${currStat}`
 	};
 
 	const string = JSON.stringify(updatedData)
+	console.log(string)
 	
 	const response = await fetch(`https://jjmac7777-mvp1.herokuapp.com/api/update/${id}`, {
 		method: 'PUT',
@@ -119,6 +121,10 @@ async function updateTasks(inputID, id) {
 	const data = await response.json()
 	console.log(data)
 	
+	if (currStat === "true"){
+        task_complete_el.style.color = "green"
+		completed_list_el.appendChild(task_el);
+    }
 }
 
 
@@ -170,10 +176,17 @@ function getAllTasks() {
 		const task_save_el = document.createElement('button');
 		task_save_el.classList.add('save');
 		task_save_el.innerText = 'Save';
+        const task_delete_el = document.createElement('button');
+        const completed_task_delete_el = document.createElement('button');
 
-		const task_delete_el = document.createElement('button');
-		task_delete_el.classList.add('delete');
-		task_delete_el.innerText = 'Delete';
+		if(!data[i].completed){
+            task_delete_el.classList.add('delete');
+		    task_delete_el.innerText = 'Delete';
+        }
+        else {
+            completed_task_delete_el.classList.add('delete');
+		    completed_task_delete_el.innerText = 'Delete';
+        }
 
 		const task_complete_el = document.createElement('button');
 		task_complete_el.classList.add('complete');
@@ -182,11 +195,20 @@ function getAllTasks() {
 		task_actions_el.appendChild(task_edit_el);
 		task_actions_el.appendChild(task_save_el);
 		task_actions_el.appendChild(task_delete_el);
+        task_actions_el.appendChild(completed_task_delete_el);
 		task_actions_el.appendChild(task_complete_el);
 
 		task_el.appendChild(task_actions_el);
-
-		list_el.appendChild(task_el);
+            console.log(data[i].completed)
+		if(!data[i].completed){
+			list_el.appendChild(task_el);
+		}
+		else {
+            
+            task_complete_el.style.color = "green"
+            completed_list_el.appendChild(task_el)
+			
+        }
 
 		task_edit_el.addEventListener('click', (e) => {
 			
@@ -195,17 +217,29 @@ function getAllTasks() {
 						
 		});
 
-		task_delete_el.addEventListener('click', (e) => {
+		completed_task_delete_el.addEventListener('click', (e) => {
+            deleteTask(inputID, id)
+            completed_list_el.removeChild(task_el);
+            
+        })
+        task_delete_el.addEventListener('click', (e) => {
 			deleteTask(inputID, id)
 			list_el.removeChild(task_el);
+            
 		});
 		task_save_el.addEventListener('click', (e) => {
-			updateTasks(inputID, id)
-			task_input_el.setAttribute("readonly", "readonly")
+			let currentStatus = data[i].completed
+            updateTasks(inputID, id, currentStatus)
+            task_input_el.setAttribute("readonly", "readonly")
+            
 		});
 		task_complete_el.addEventListener('click', (e) => {
 			task_complete_el.style.color = "green"
-			;
+            data[i].completed = "true"
+            currentStatus = data[i].completed
+            console.log(currentStatus)
+            updateTasks(inputID, id, currentStatus)
+			location.reload()
 		});
 
 		}

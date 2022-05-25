@@ -23,7 +23,8 @@ body {
 	min-height: 100vh;
 	flex-direction: column;
 	color: #FFF;
-	background-image: url('/images/Chalkboard3.png');
+	/* background-image: url('/images/Chalkboard3.png'); */
+	background-color: black;
 	background-size: auto;
 	
 }
@@ -126,6 +127,17 @@ main {
 }
 
 #tasks .task {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	/* background-color: var(--darkgray); */
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-bottom: 1rem;
+	
+}
+
+#completed_tasks .task {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
