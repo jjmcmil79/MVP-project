@@ -93,8 +93,8 @@ console.log({taskData})
 	console.log(data)
 }
 
-async function updateTasks(input) {
-	const updatedTask = input;
+async function updateTasks(e) {
+	const updatedTask = input.value;
 	const jsonDate = new Date()
 	
 	let updatedData = {
@@ -162,8 +162,8 @@ function getAllTasks() {
 				task_input_el.removeAttribute("readonly");
 				task_input_el.focus();
 				task_edit_el.addEventListener('click', (e) => {
-					const input = input.value
 					console.log(e)
+					const input = input.value
 					updateTasks(input)
 				})
 			} else {
