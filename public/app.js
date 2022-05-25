@@ -96,6 +96,7 @@ console.log({taskData})
 }
 
 async function updateTasks(e) {
+	console.log(e)
 	const updatedTask = input.value;
 	const jsonDate = new Date()
 	
