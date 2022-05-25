@@ -122,9 +122,10 @@ async function updateTasks(e) {
 function getAllTasks() {
   
 	$.get("https://jjmac7777-mvp1.herokuapp.com/api/tasks" , (data) => {
-		const id = data[i].id
+		
 		for (let i = 0; i < data.length; i++) {
 			const task = data[i].task_content;
+			const id = data[i].id
 
 		const task_el = document.createElement('div');
 		task_el.classList.add('task');
