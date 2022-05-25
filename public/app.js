@@ -99,7 +99,7 @@ async function updateTasks(conID, id) {
 	// task_edit_el.addEventListener('click', (e) => {
 	// console.log(e)
 	// })
-	const input = document.querySelector(`#${id}`)
+	const input = document.querySelector(`#${conID}`)
 	const updatedTask = input.value;
 	const jsonDate = new Date()
 	
