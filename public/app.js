@@ -95,7 +95,7 @@ console.log({taskData})
 	console.log(data)
 }
 
-async function updateTasks(id) {
+async function updateTasks(conID, id) {
 	// task_edit_el.addEventListener('click', (e) => {
 	// console.log(e)
 	// })
@@ -111,7 +111,7 @@ async function updateTasks(id) {
 
 	const string = JSON.stringify(updatedData)
 	
-	const response = await fetch(`https://jjmac7777-mvp1.herokuapp.com/api/update`, {
+	const response = await fetch(`https://jjmac7777-mvp1.herokuapp.com/api/update${id}`, {
 		method: 'PUT',
 		headers: {
 			'Content-Type': 'application/json'
@@ -181,7 +181,7 @@ function getAllTasks() {
 			
 				task_input_el.removeAttribute("readonly");
 				task_input_el.focus();
-				updateTasks(contentID)
+				// updateTasks(contentID)
 			
 		});
 
@@ -190,7 +190,7 @@ function getAllTasks() {
 			list_el.removeChild(task_el);
 		});
 		task_save_el.addEventListener('click', (e) => {
-			
+			updateTasks(contentID, id)
 			task_input_el.setAttribute("readonly", "readonly")
 		});
 		task_complete_el.addEventListener('click', (e) => {
