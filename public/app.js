@@ -100,7 +100,7 @@ async function updateTasks(conID, id) {
 	// console.log(e)
 	// })
 	console.log(conID, id)
-	const input = document.querySelector(`#${conID}`)
+	const input = document.getElementById(`${conID}`)
 	const updatedTask = input.value;
 	const jsonDate = new Date()
 	console.log(updatedTask)
