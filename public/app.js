@@ -7,8 +7,8 @@ window.addEventListener('load', getAllTasks)
 
 
 	form.addEventListener('submit', (e) => {
-		e.preventDefault()
-		console.log(e)
+		// e.preventDefault()
+		// console.log(e)
 		createTask(e);
 
 		// const task = input.value;
@@ -163,7 +163,7 @@ function getAllTasks() {
 				task_edit_el.innerText = "Save";
 				task_input_el.removeAttribute("readonly");
 				task_input_el.focus();
-				task_edit_el.addEventListener('click', (e) => {
+				task_edit_el.addEventListener('submit', (e) => {
 					console.log(e)
 					// const input = input.value
 					updateTasks(e)
