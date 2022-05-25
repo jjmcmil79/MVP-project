@@ -1,214 +1,212 @@
 :root {
-	--dark: #3a7ca5;
-	--darker: #2f6690;
-	--darkest: #16425b;
-	--grey: #d9dcd6;
-	--pink: #EC4899;
-	--purple: #8B5CF6;
-	--light: #81c3d7;
-	--aero: #7cbbdf;
-	--red: #dc143c;
-	--darkgray: #181716;
-	--darkergray: #272727;
+  --dark: #3a7ca5;
+  --darker: #2f6690;
+  --darkest: #16425b;
+  --grey: #d9dcd6;
+  --pink: #ec4899;
+  --purple: #8b5cf6;
+  --light: #81c3d7;
+  --aero: #7cbbdf;
+  --red: #dc143c;
+  --darkgray: #181716;
+  --darkergray: #272727;
 }
 
 * {
-	margin: 0;
-	box-sizing: border-box;
-	font-family: "Fira sans", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Fira sans", sans-serif;
 }
 
 body {
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column;
-	color: #FFF;
-	/* background-image: url('/images/Chalkboard3.png'); */
-	background-color: black;
-	background-size: auto;
-	
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  color: #fff;
+  /* background-image: url('/images/Chalkboard3.png'); */
+  background-color: black;
+  background-size: auto;
 }
-
-/* #middlediv {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-} */
 
 header {
-	padding: 2rem 1rem;
-	max-width: 800px;
-	width: 100%;
-	margin: 0 auto;
-	text-align: center;
-	
+  padding: 2rem 1rem;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
 }
 
-header h1{ 
-	font-size: 2.5rem;
-	font-weight: 300;
-	color: var(--grey);
-	margin-bottom: 1rem;
-	font-family:'Chalkduster', fantasy;
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--grey);
+  margin-bottom: 1rem;
+  font-family: "Chalkduster", fantasy;
 }
-
-/* #tododiv {
-
-} */
 
 #new-task-form {
-	display: flex;;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-input, button {
-	appearance: none;
-	border: none;
-	outline: none;
-	background: none;
-	font-family:'Chalkduster', fantasy;
+input,
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: "Chalkduster", fantasy;
 }
 
 #new-task-input {
-	flex: 1 1 0%;
-	text-align: center;
-	padding: 1rem;
-	border-radius: 1rem;
-	margin-right: 1rem;
-	color: var(--light);
-	font-size: 1.25rem;
+  flex: 1 1 0%;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  color: var(--light);
+  font-size: 1.25rem;
 }
 #new-task-input:hover {
-	background-color: var(--darkergray);
+  background-color: var(--darkergray);
 }
 
 #new-task-input::placeholder {
-	color: var(--grey);
+  color: var(--grey);
 }
 
 #new-task-submit {
-	color: var(--pink);
-	font-size: 1rem;
-	font-weight: 700;
-	background-image: linear-gradient(to right, var(--red), var(--pink), var(--aero), var(--purple));
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	cursor: pointer;
-	transition: 0.4s;
+  color: var(--pink);
+  font-size: 1rem;
+  font-weight: 700;
+  background-image: linear-gradient(
+    to right,
+    var(--red),
+    var(--pink),
+    var(--aero),
+    var(--purple)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  transition: 0.4s;
 }
 
 #new-task-submit:hover {
-	opacity: 0.7;
+  opacity: 0.7;
 }
 
 #new-task-submit:active {
-	opacity: 0.5;
+  opacity: 0.5;
 }
 
 main {
-	flex: 1 1 0%;
-	max-width: 800px;
-	width: 100%;
-	margin: 0 auto;
-	
+  flex: 1 1 0%;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .task-list {
-	padding: 1rem;
+  padding: 1rem;
 }
 
 .task-list h2 {
-	font-size: 2rem;
-	font-weight: 300;
-	color: var(--grey);
-	margin-bottom: 1rem;
-	text-align: center;
-	font-family:'Chalkduster', fantasy;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--grey);
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: "Chalkduster", fantasy;
 }
 
 #tasks .task {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	/* background-color: var(--darkgray); */
-	padding: 1rem;
-	border-radius: 1rem;
-	margin-bottom: 1rem;
-	
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: var(--darkgray); */
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 
 #completed_tasks .task {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	/* background-color: var(--darkgray); */
-	padding: 1rem;
-	border-radius: 1rem;
-	margin-bottom: 1rem;
-	
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: var(--darkgray); */
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 
 .task .content {
-	flex: 1 1 0%;
-	
+  flex: 1 1 0%;
 }
 
 .task .content .text {
-	color: var(--grey);
-	text-align: center;
-	font-size: 1.125rem;
-	width: 100%;
-	display: block;
-	transition: 0.4s;
+  color: var(--grey);
+  text-align: center;
+  font-size: 1.125rem;
+  width: 100%;
+  display: block;
+  transition: 0.4s;
 }
 
 .task .content .text:not(:read-only) {
-	color: var(--pink);
+  color: var(--pink);
 }
 
 .task .actions {
-	display: flex;
-	margin: auto;
-	padding: .5rem;
-	
-	
-	
+  display: flex;
+  margin: auto;
+  padding: 0.5rem;
 }
 
 .task .actions button {
-	cursor: pointer;
-	margin: 0 0.5rem;
-	font-size: 0.75rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	transition: 0.4s;
-	
+  cursor: pointer;
+  margin: 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.4s;
 }
 
 .task .actions button:hover {
-	opacity: 0.7;
+  opacity: 0.7;
 }
 
 .task .actions button:active {
-	opacity: 0.5;
+  opacity: 0.5;
 }
 
 .task .actions .edit {
-	background-image: linear-gradient(to right, var(--red), var(--pink), var(--aero), var(--purple));
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
+    to right,
+    var(--red),
+    var(--pink),
+    var(--aero),
+    var(--purple)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .task .actions .save {
-	background-image: linear-gradient(to right, var(--pink), var(--aero), var(--purple));
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
+    to right,
+    var(--pink),
+    var(--aero),
+    var(--purple)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .task .actions .complete {
-	color: var(--light);
+  color: var(--light);
 }
 
 .task .actions .delete {
-	color: crimson;
+  color: crimson;
 }
