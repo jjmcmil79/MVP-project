@@ -154,16 +154,16 @@ function getAllTasks() {
 		task_edit_el.innerText = 'Edit';
 
 		const task_save_el = document.createElement('button');
-		task_edit_el.classList.add('save');
-		task_edit_el.innerText = 'Save';
+		task_save_el.classList.add('save');
+		task_save_el.innerText = 'Save';
 
 		const task_delete_el = document.createElement('button');
 		task_delete_el.classList.add('delete');
 		task_delete_el.innerText = 'Delete';
 
 		const task_complete_el = document.createElement('button');
-		task_delete_el.classList.add('complete');
-		task_delete_el.innerText = 'Completed';
+		task_complete_el.classList.add('complete');
+		task_complete_el.innerText = 'Completed';
 
 		task_actions_el.appendChild(task_edit_el);
 		task_actions_el.appendChild(task_save_el);
