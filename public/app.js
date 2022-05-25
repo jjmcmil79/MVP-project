@@ -178,3 +178,49 @@ function getAllTasks() {
     console.log(data);
   });
 }
+
+// ticker API
+ticker();
+function ticker() {
+  const ticker_el = document.getElementById("hwrap");
+  const moveDiv = document.createElement("div");
+  moveDiv.classList.add("hmove");
+  ticker_el.appendChild(moveDiv);
+  $.get(
+    "https://newsapi.org/v2/top-headlines?country=us&apiKey=848bbfd0fb364a2ca2fce9396844c90a",
+    (data) => {
+      console.log(data);
+      for (let i = 0; i < 10; i++) {
+        const tempDiv = document.createElement("div");
+        tempDiv.classList.add("hitem");
+        moveDiv.appendChild(tempDiv);
+        tempDiv.innerHTML = data.articles[i].title;
+      }
+    }
+  );
+}
+
+// create Container
+const container = document.getElementById("container");
+const currentInfo = document.createElement("current-info");
+currentInfo.classList.add("current-info");
+container.appendChild(currentInfo);
+
+const currentContainer = document.createElement("current-container");
+currentContainer.classList.add("current-container");
+currentInfo.appendChild(currentContainer);
+
+const dateContainer = document.createElement("date-container");
+dateContainer.classList.add("date-container");
+currentInfo.appendChild(dateContainer);
+
+const date = document.createElement("div");
+date.classList.add("date");
+date.id = "date";
+date.textContent = "Thursday, 28 April";
+dateContainer.appendChild(date);
+
+let cdate = moment().format("dddd, MMMM Do YYYY");
+let now = moment().format("h:mm a");
+let dateandtime =
+  (dateContainer.innerHTML = `${cdate}<br/>Current time: ${now}`);

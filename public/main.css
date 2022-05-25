@@ -10,6 +10,7 @@
   --red: #dc143c;
   --darkgray: #181716;
   --darkergray: #272727;
+  --transblack: rgba(39, 39, 39, 0.5);
 }
 
 * {
@@ -23,9 +24,15 @@ body {
   min-height: 100vh;
   flex-direction: column;
   color: #fff;
-  background-image: url('https://i.ibb.co/fFzxwWP/Chalkboard3.png');
+  background-image: url("https://i.ibb.co/fFzxwWP/Chalkboard3.png");
   background-size: contain;
 }
+
+/* #middlediv {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+} */
 
 header {
   padding: 2rem 1rem;
@@ -42,6 +49,10 @@ header h1 {
   margin-bottom: 1rem;
   font-family: "Chalkduster", fantasy;
 }
+
+/* #tododiv {
+
+} */
 
 #new-task-form {
   display: flex;
@@ -65,6 +76,7 @@ button {
   margin-right: 1rem;
   color: var(--light);
   font-size: 1.25rem;
+  background-color: var(--transblack);
 }
 #new-task-input:hover {
   background-color: var(--darkergray);
@@ -123,7 +135,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* background-color: var(--darkgray); */
+  background-color: var(--transblack);
   padding: 1rem;
   border-radius: 1rem;
   margin-bottom: 1rem;
@@ -133,7 +145,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* background-color: var(--darkgray); */
+  background-color: var(--transblack);
   padding: 1rem;
   border-radius: 1rem;
   margin-bottom: 1rem;
@@ -208,4 +220,41 @@ main {
 
 .task .actions .delete {
   color: crimson;
+}
+
+/* (A) FIXED WRAPPER */
+.hwrap {
+  overflow: hidden; /* HIDE SCROLL BAR */
+  background: var(--transblack);
+}
+
+/* (B) MOVING TICKER WRAPPER */
+.hmove {
+  display: flex;
+}
+
+/* (C) ITEMS - INTO A LONG HORIZONTAL ROW */
+.hitem {
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+}
+
+/* (D) ANIMATION - MOVE ITEMS FROM RIGHT TO LEFT */
+/* 4 ITEMS -400%, CHANGE THIS IF YOU ADD/REMOVE ITEMS */
+@keyframes tickerh {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-1000%, 0, 0);
+  }
+}
+.hmove {
+  animation: tickerh linear 60s infinite;
+}
+.hmove:hover {
+  animation-play-state: paused;
 }
