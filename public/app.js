@@ -163,8 +163,8 @@ function getAllTasks() {
 				task_input_el.focus();
 				task_edit_el.addEventListener('click', (e) => {
 					console.log(e)
-					const input = input.value
-					updateTasks(input)
+					// const input = input.value
+					updateTasks(e)
 				})
 			} else {
 				task_edit_el.innerText = "Edit";
