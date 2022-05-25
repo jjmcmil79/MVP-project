@@ -96,9 +96,9 @@ console.log({taskData})
 }
 
 async function updateTasks() {
-	task_edit_el.addEventListener('click', (e) => {
-	console.log(e)
-	})
+	// task_edit_el.addEventListener('click', (e) => {
+	// console.log(e)
+	// })
 	const updatedTask = input.value;
 	const jsonDate = new Date()
 	
@@ -128,14 +128,16 @@ function getAllTasks() {
 		for (let i = 0; i < data.length; i++) {
 			const task = data[i].task_content;
 			const id = data[i].id
+			
 
 		const task_el = document.createElement('div');
 		task_el.classList.add('task');
 
 		const task_content_el = document.createElement('div');
 		task_content_el.classList.add('content');
-		task_content_el.id = id
-
+		task_content_el.id = `content${id}`
+		const contentID = task_content_el.id
+		const contentInput = document.querySelector(`#${contentID}`)
 		task_el.appendChild(task_content_el);
 
 		const task_input_el = document.createElement('input');
