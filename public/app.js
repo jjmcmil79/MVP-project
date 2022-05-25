@@ -95,10 +95,11 @@ console.log({taskData})
 	console.log(data)
 }
 
-async function updateTasks() {
+async function updateTasks(id) {
 	// task_edit_el.addEventListener('click', (e) => {
 	// console.log(e)
 	// })
+	const input = document.querySelector(`#${id}`)
 	const updatedTask = input.value;
 	const jsonDate = new Date()
 	
@@ -180,7 +181,7 @@ function getAllTasks() {
 			
 				task_input_el.removeAttribute("readonly");
 				task_input_el.focus();
-				updateTasks()
+				updateTasks(contentID)
 			
 		});
 
