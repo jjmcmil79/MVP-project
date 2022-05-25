@@ -122,6 +122,7 @@ async function updateTasks(e) {
 function getAllTasks() {
   
 	$.get("https://jjmac7777-mvp1.herokuapp.com/api/tasks" , (data) => {
+		const id = data[i].id
 		for (let i = 0; i < data.length; i++) {
 			const task = data[i].task_content;
 
@@ -130,6 +131,7 @@ function getAllTasks() {
 
 		const task_content_el = document.createElement('div');
 		task_content_el.classList.add('content');
+		task_content_el.id = id
 
 		task_el.appendChild(task_content_el);
 
@@ -164,11 +166,7 @@ function getAllTasks() {
 				task_edit_el.innerText = "Save";
 				task_input_el.removeAttribute("readonly");
 				task_input_el.focus();
-				task_edit_el.addEventListener('submit', (e) => {
-					console.log(e)
-					// const input = input.value
-					updateTasks(e)
-				})
+				task_edit_el.addEventListener('click', updateTasks)
 			} else {
 				task_edit_el.innerText = "Edit";
 				task_input_el.setAttribute("readonly", "readonly");
