@@ -98,6 +98,7 @@ console.log({taskData})
 async function updateTasks() {
 	task_edit_el.addEventListener('click', (e) => {
 	console.log(e)
+	})
 	const updatedTask = input.value;
 	const jsonDate = new Date()
 	
@@ -118,7 +119,7 @@ async function updateTasks() {
 	})
 	const data = await response.json()
 	console.log(data)
-	})
+	
 }
 function getAllTasks() {
   
@@ -178,6 +179,7 @@ function getAllTasks() {
 				task_edit_el.innerText = "Save";
 				task_input_el.removeAttribute("readonly");
 				task_input_el.focus();
+				updateTasks()
 				
 			} else {
 				task_edit_el.innerText = "Edit";
