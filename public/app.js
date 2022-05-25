@@ -7,6 +7,7 @@ window.addEventListener('load', getAllTasks)
 
 
 	form.addEventListener('submit', (e) => {
+		console.log(e)
 		createTask(e);
 
 		// const task = input.value;
