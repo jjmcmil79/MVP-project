@@ -143,7 +143,7 @@ main {
 .task .actions button {
 	cursor: pointer;
 	margin: 0 0.5rem;
-	font-size: 1.125rem;
+	font-size: 1rem;
 	font-weight: 700;
 	text-transform: uppercase;
 	transition: 0.4s;

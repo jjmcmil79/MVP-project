@@ -175,22 +175,26 @@ function getAllTasks() {
 		list_el.appendChild(task_el);
 
 		task_edit_el.addEventListener('click', (e) => {
-			if (task_edit_el.innerText.toLowerCase() == "edit") {
-				task_edit_el.innerText = "Save";
+			
 				task_input_el.removeAttribute("readonly");
 				task_input_el.focus();
 				updateTasks()
-				
-			} else {
-				task_edit_el.innerText = "Edit";
-				task_input_el.setAttribute("readonly", "readonly");
-			}
+			
 		});
 
 		task_delete_el.addEventListener('click', (e) => {
 			
 			list_el.removeChild(task_el);
 		});
+		task_save_el.addEventListener('click', (e) => {
+			
+			task_input_el.setAttribute("readonly", "readonly")
+		});
+		task_complete_el.addEventListener('click', (e) => {
+			task_complete_el.style.color = "green"
+			;
+		});
+
 		}
 		console.log(data)
 		
