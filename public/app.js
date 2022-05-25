@@ -95,12 +95,12 @@ console.log({taskData})
 	console.log(data)
 }
 
-async function updateTasks(conID, id) {
+async function updateTasks(inputID, id) {
 	// task_edit_el.addEventListener('click', (e) => {
 	// console.log(e)
 	// })
-	console.log(conID, id)
-	const input = document.getElementById(`${conID}`)
+	console.log(inputID, id)
+	const input = document.getElementById(`${inputID}`)
 	const updatedTask = input.value;
 	const jsonDate = new Date()
 	console.log(updatedTask)
@@ -143,9 +143,8 @@ function getAllTasks() {
 		task_input_el.classList.add('text');
 		task_input_el.type = 'text';
 		task_input_el.value = task;
-		task_content_el.id = `content${id}`
-		const contentID = task_content_el.id
-		const contentInput = document.querySelector(`#${contentID}`)
+		task_input_el.id = `task${id}`
+		const inputID = task_input_el.id
 		task_input_el.setAttribute('readonly', 'readonly');
 
 		task_content_el.appendChild(task_input_el);
@@ -191,7 +190,7 @@ function getAllTasks() {
 			list_el.removeChild(task_el);
 		});
 		task_save_el.addEventListener('click', (e) => {
-			updateTasks(contentID, id)
+			updateTasks(inputID, id)
 			task_input_el.setAttribute("readonly", "readonly")
 		});
 		task_complete_el.addEventListener('click', (e) => {
