@@ -8,7 +8,7 @@ app.use(express.static("public"));
 
 app.get("/api/tasks", async (_, res) => {
     try {
-        await db.query('SELECT * FROM tasks ORDER BY id ASC', (error, results) => {
+        await db.query('SELECT * FROM tasks ORDER BY id DESC', (error, results) => {
             // console.log(results)
             res.status(200).json(results.rows)
         })
