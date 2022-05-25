@@ -98,7 +98,7 @@ async function updateTasks(e) {
 	const jsonDate = new Date()
 	
 	let updatedData = {
-		task_content: UpdatedTask,
+		task_content: updatedTask,
 		due_date: jsonDate,
 		completed: "false"
 	};
