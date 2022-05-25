@@ -93,7 +93,29 @@ console.log({taskData})
 	console.log(data)
 }
 
+async function updateTasks(e) {
+	const updatedTask = input.value;
+	const jsonDate = new Date()
+	
+	let updatedData = {
+		task_content: UpdatedTask,
+		due_date: jsonDate,
+		completed: "false"
+	};
 
+	const string = JSON.stringify(updatedData)
+	
+	const response = await fetch("https://jjmac7777-mvp1.herokuapp.com/api/create", {
+		method: 'PUT',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: string
+	})
+	const data = await response.json()
+	console.log(data)
+
+}
 function getAllTasks() {
   
 	$.get("https://jjmac7777-mvp1.herokuapp.com/api/tasks" , (data) => {
@@ -139,6 +161,7 @@ function getAllTasks() {
 				task_edit_el.innerText = "Save";
 				task_input_el.removeAttribute("readonly");
 				task_input_el.focus();
+				updateTasks(e)
 			} else {
 				task_edit_el.innerText = "Edit";
 				task_input_el.setAttribute("readonly", "readonly");
@@ -146,6 +169,7 @@ function getAllTasks() {
 		});
 
 		task_delete_el.addEventListener('click', (e) => {
+			
 			list_el.removeChild(task_el);
 		});
 		}
@@ -153,7 +177,3 @@ function getAllTasks() {
 		
   })
 }
-// getAllTasks()
-
- //POST JSON data to the API
-//  $.post( "youdomain.com/message", JSON.stringify(yourDataObjectOrArray));

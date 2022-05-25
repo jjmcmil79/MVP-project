@@ -30,6 +30,21 @@ app.post("/api/create", async (req, res) => {
     }
 });
 
+app.put("/api/update", async (req, res) => {
+    try {
+        const id = req.params.id
+        const {task_content, due_date, completed} = req.body
+        
+      await db.query(
+            'UPDATE tasks SET task_content = $1, due_date = $2, completed = $3 WHERE id = $4', [task_content, due_date, completed, id], (err, results) => {
+         console.log(req.body)
+         res.status(200).send(`${req.body} task was added`)
+     })
+     } catch (error) {
+        console.error(error.message)
+     }
+ });
+
 app.listen(process.env.PORT, () => {
     console.log(`Server is listening on port: ${process.env.PORT}`)
 })
