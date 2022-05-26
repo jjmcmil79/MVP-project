@@ -11,7 +11,7 @@ form.addEventListener("submit", (e) => {
 });
 //Creates a task by sending a POST method to the API server
 async function createTask(e) {
-  e.preventDefault();
+
   const task = input.value;
   const jsonDate = new Date();
 
