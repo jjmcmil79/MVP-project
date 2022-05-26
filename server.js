@@ -2,6 +2,8 @@ require("dotenv").config()
 const express = require("express")
 const app = express()
 const db = require("./db/conn")
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI('848bbfd0fb364a2ca2fce9396844c90a');
 
 app.use(express.json())
 app.use(express.static("public"));
@@ -56,6 +58,24 @@ app.put("/api/update/:id", async (req, res) => {
         console.error(error.message)
      }
  });
+
+ // To query top headlines
+// All options passed to topHeadlines are optional, but you need to include at least one of them
+ app.get("/api/news", async (req, res) => {
+    try {
+        await newsapi.v2.topHeadlines({
+            q: '',
+            category: 'politics',
+            language: 'en',
+            country: 'us'
+          }).then(response => {
+            res.send(response);
+        })
+        
+    } catch (error) {
+        console.error(error.message)
+    }
+});
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is listening on port: ${process.env.PORT}`)

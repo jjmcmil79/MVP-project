@@ -85,8 +85,8 @@ async function deleteTask(inputID, id) {
   console.log(data);
 }
 
-function getAllTasks() {
-  $.get("https://jjmac7777-mvp1.herokuapp.com/api/tasks", (data) => {
+async function getAllTasks() {
+  await $.get("https://jjmac7777-mvp1.herokuapp.com/api/tasks", (data) => {
     for (let i = 0; i < data.length; i++) {
       const task = data[i].task_content;
       const id = data[i].id;
@@ -187,7 +187,7 @@ function ticker() {
   moveDiv.classList.add("hmove");
   ticker_el.appendChild(moveDiv);
   $.get(
-    "https://newsapi.org/v2/top-headlines?country=us&apiKey=848bbfd0fb364a2ca2fce9396844c90a",
+    "https://jjmac7777-mvp1.herokuapp.com/api/news",
     (data) => {
       console.log(data);
       for (let i = 0; i < 10; i++) {
@@ -200,7 +200,7 @@ function ticker() {
   );
 }
 
-// create Container
+// create Time Date Container
 const container = document.getElementById("container");
 const currentInfo = document.createElement("current-info");
 currentInfo.classList.add("current-info");
