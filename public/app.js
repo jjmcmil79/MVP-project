@@ -3,14 +3,15 @@ const input = document.querySelector("#new-task-input");
 const list_el = document.querySelector("#tasks");
 const completed_list_el = document.querySelector("#completed_tasks");
 
+//On window load complete execute GetAllTasks and populate the page
 window.addEventListener("load", getAllTasks);
-
+//When form is filled out and submitted
 form.addEventListener("submit", (e) => {
   createTask(e);
 });
-
+//Creates a task by sending a POST method to the API server
 async function createTask(e) {
-  e.preventDefault()
+  e.preventDefault();
   const task = input.value;
   const jsonDate = new Date();
 
@@ -37,7 +38,7 @@ async function createTask(e) {
   const data = await response.json();
   console.log(data);
 }
-
+//Updates a task by sending a PUT method to the API server
 async function updateTasks(inputID, id, currStat) {
   console.log(inputID, id, currStat);
   const input = document.getElementById(`${inputID}`);
@@ -71,7 +72,7 @@ async function updateTasks(inputID, id, currStat) {
     completed_list_el.appendChild(task_el);
   }
 }
-
+//Deletes a task by sending a DELETE method to the API server
 async function deleteTask(inputID, id) {
   console.log(inputID, id);
   const input = document.getElementById(`${inputID}`);
@@ -85,7 +86,7 @@ async function deleteTask(inputID, id) {
   const data = await response.json();
   console.log(data);
 }
-
+// //Reads all tasks by sending a GET method to the API server
 async function getAllTasks() {
   await $.get("https://jjmac7777-mvp1.herokuapp.com/api/tasks", (data) => {
     for (let i = 0; i < data.length; i++) {
@@ -180,25 +181,22 @@ async function getAllTasks() {
   });
 }
 
-// ticker API
+// ticker API retrieves news stories by sending a GET method to the API server
 ticker();
 function ticker() {
   const ticker_el = document.getElementById("hwrap");
   const moveDiv = document.createElement("div");
   moveDiv.classList.add("hmove");
   ticker_el.appendChild(moveDiv);
-  $.get(
-    "https://jjmac7777-mvp1.herokuapp.com/api/news",
-    (data) => {
-      console.log(data);
-      for (let i = 0; i < 10; i++) {
-        const tempDiv = document.createElement("div");
-        tempDiv.classList.add("hitem");
-        moveDiv.appendChild(tempDiv);
-        tempDiv.innerHTML = data.articles[i].title;
-      }
+  $.get("https://jjmac7777-mvp1.herokuapp.com/api/news", (data) => {
+    console.log(data);
+    for (let i = 0; i < 10; i++) {
+      const tempDiv = document.createElement("div");
+      tempDiv.classList.add("hitem");
+      moveDiv.appendChild(tempDiv);
+      tempDiv.innerHTML = data.articles[i].title;
     }
-  );
+  });
 }
 
 // create Time Date Container

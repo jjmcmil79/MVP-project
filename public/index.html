@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       src="https://code.jquery.com/jquery-3.5.1.js"
       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
@@ -10,54 +10,40 @@
     ></script>
     <script src="https://momentjs.com/downloads/moment.js"></script>
     <title>Working Family Planner</title>
-    <link rel="stylesheet" href="main.css">
-    
-</head>
-<body>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
     <header>
-        <h1>Working Family Planner</h1>
-        <div id="container"></div>
-        <div class="hwrap" id="hwrap"><div class="hmove">
-            
-          </div></div>
+      <h1>Working Family Planner</h1>
+      <div id="container"></div>
+      <div class="hwrap" id="hwrap"><div class="hmove"></div></div>
     </header>
- 
-        <div id="tododiv">
-            <header>
-                <h1>To-Do List</h1>
-                <form id="new-task-form">
-                    <input 
-                        type="text" 
-                        name="new-task-input" 
-                        id="new-task-input" 
-                        placeholder="What do you have planned?" />
-                    <input 
-                        type="submit"
-                        id="new-task-submit" 
-                        value="Add task" />
-                </form>
-            </header>
-            <main>
-                <section class="task-list">
-                    <h2>Tasks</h2>
-        
-                    <div id="tasks">
-        
-                    </div>
-                    <h2>Completed</h2>
-        
-                    <div id="completed_tasks">
-        
-                    </div>
-                </section>
-            </main>
-        </div>
-    <!-- </div> -->
-    <!-- <h1>Header2</h1> -->
-    <!-- <h3>Navigate to "/api/students" to test the "GET all students" route, and the Database</h3> -->
 
-    <!-- <h4>Open the chrome console to see your frontend JS running!</h4> -->
+    <div id="tododiv">
+      <header>
+        <h1>To-Do List</h1>
+        <form id="new-task-form">
+          <input
+            type="text"
+            name="new-task-input"
+            id="new-task-input"
+            placeholder="What do you have planned?"
+          />
+          <input type="submit" id="new-task-submit" value="Add task" />
+        </form>
+      </header>
+      <main>
+        <section class="task-list">
+          <h2>Tasks</h2>
+
+          <div id="tasks"></div>
+          <h2>Completed</h2>
+
+          <div id="completed_tasks"></div>
+        </section>
+      </main>
+    </div>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
