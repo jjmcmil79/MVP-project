@@ -10,6 +10,7 @@ form.addEventListener("submit", (e) => {
 });
 
 async function createTask(e) {
+  e.preventDefault()
   const task = input.value;
   const jsonDate = new Date();
 
